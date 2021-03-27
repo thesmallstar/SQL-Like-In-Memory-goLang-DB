@@ -25,8 +25,10 @@ func (c *StringColumn) InsertData(val string) {
 	c.data = append(c.data, val)
 }
 
+//Errors are only logged at the moments, can be handled better.
 func (c StringColumn) ValidateValue(val string) bool {
-	if true {
+	//this is as per the question I am trying to solve, feel free to ignore the constrain
+	if len(val) <= 20 {
 		return true
 	} else {
 		//for now program ends if a invalid input is given..

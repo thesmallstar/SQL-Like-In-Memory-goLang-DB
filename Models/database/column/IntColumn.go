@@ -2,6 +2,7 @@ package column
 
 import (
 	"fmt"
+	"math"
 	"os"
 	"strconv"
 )
@@ -27,8 +28,9 @@ func (c *IntColumn) InsertData(val string) {
 	c.data = append(c.data, fval)
 }
 
+//Errors are only logged at the moments, can be handled better.
 func (c IntColumn) ValidateValue(val string) bool {
-	if true {
+	if v, err := strconv.Atoi(val); err == nil && math.Abs(float64(v)) <= 1024 {
 		return true
 	} else {
 		//for now program ends if a invalid input is given..

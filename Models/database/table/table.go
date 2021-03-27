@@ -5,32 +5,25 @@ import (
 	"fmt"
 )
 
-type DataType int
-
-const (
-	INT_TYPE DataType = iota
-	STRING_TYPE
-)
-
 type Table struct {
 	numRows            int            //number of rows in this table
 	numColumns         int            //number of columns in this table
 	ColumnNamesToindex map[string]int //get on which index any column "X" is stored
 	ColumnNames        []string
-	columns            []column.Column //this stores entire data - look column class
-	columnTypes        []DataType      //**not used for this question**, entire thing works without it.
+	columns            []column.Column   //this stores entire data - look column class
+	columnTypes        []column.DataType //**not used for this question**, entire thing works without it.
 }
 
-func (tab *Table) ConstructTable(columnName []string, columnType []DataType) {
+func (tab *Table) ConstructTable(columnName []string, columnType []column.DataType) {
 	tab.numColumns = len(columnName)
 	tab.ColumnNames = make([]string, len(columnName))
 	copy(tab.ColumnNames, columnName)
 	for index, _ := range columnName {
 		tab.ColumnNamesToindex[columnName[index]] = index
-		if columnType[index] == INT_TYPE {
+		if columnType[index] == column.INT_TYPE {
 			intCol := &column.IntColumn{}
 			tab.columns = append(tab.columns, intCol)
-		} else if columnType[index] == STRING_TYPE {
+		} else if columnType[index] == column.STRING_TYPE {
 			strCol := &column.StringColumn{}
 			tab.columns = append(tab.columns, strCol)
 		}
@@ -52,10 +45,11 @@ func (tab *Table) PrintTable() {
 }
 
 func (tab *Table) PrintColumn(name string) {
-	fmt.Println(name)
+	fmt.Println(name + ":")
 	val := tab.ColumnNamesToindex[name]
-	for i := 0; i < tab.numColumns; i++ {
+	for i := 0; i < tab.numRows; i++ {
 		tab.columns[val].PrintData(i)
+		fmt.Print(" ")
 	}
 }
 
