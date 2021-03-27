@@ -15,7 +15,7 @@ Features:
 Sample code to test the code:
 ```go
 
-  //create Database
+        //create Database
 	db := &database.Database{}
 	db.InitDb("School")
 
@@ -24,7 +24,7 @@ Sample code to test the code:
 	//set column types (this could have been a map)
 	colTypes := []column.DataType{column.STRING_TYPE, column.INT_TYPE, column.INT_TYPE}
 
-  //Add new table to the database
+        //Add new table to the database
 	db.AddNewTable("Students", colNames, colTypes)
 
 	val1 := []string{"Manthan", "40", "20"}
@@ -32,7 +32,7 @@ Sample code to test the code:
 	val3 := []string{"Manan", "80", "15"}
 	val4 := []string{"Riya", "45", "20"}
 
-  //Add new Rows to a table
+ 	//Add new Rows to a table
 	db.GetTable("Students").AddRow(val1)
 	db.GetTable("Students").AddRow(val2)
 	db.GetTable("Students").AddRow(val3)
@@ -41,10 +41,10 @@ Sample code to test the code:
 	//Print Entire Table
 	db.GetTable("Students").PrintTable()
   
-  //Print any column from a table
+        //Print any column from a table
 	db.GetTable("Students").PrintColumn("Name")
 
-  //Delete any table 
+  	//Delete any table 
 	db.DeleteTable("Students")
   
 ```
