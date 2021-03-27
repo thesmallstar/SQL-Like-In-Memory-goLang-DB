@@ -50,7 +50,10 @@ Sample code to test the code:
 	db.DeleteTable("Students")
   
 ```
+Sample Output:
 
+![image](https://user-images.githubusercontent.com/42006277/112733244-bd474c00-8f64-11eb-8013-97ec25dbe618.png)
+ 
 
 
 
