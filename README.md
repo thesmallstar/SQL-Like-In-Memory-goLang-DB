@@ -21,6 +21,7 @@ Sample code to test the code:
 
 	//Set column names
 	colNames := []string{"Name", "RollNumber", "Marks"}
+	
 	//set column types (this could have been a map)
 	//column types are stored as ENUM
 	colTypes := []column.DataType{column.STRING_TYPE, column.INT_TYPE, column.INT_TYPE}
