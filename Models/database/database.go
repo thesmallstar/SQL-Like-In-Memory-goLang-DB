@@ -27,7 +27,7 @@ func (db *Database) GetTable(name string) *table.Table {
 
 func (db *Database) DeleteTable(name string) bool {
 	delete(db.tables, name)
-	if _, ok := db.tables["students"]; !ok {
+	if _, ok := db.tables[name]; !ok {
 		//table not found
 		print("Successfully Deleted Table: " + name)
 		return true
