@@ -5,7 +5,7 @@ The database has SQL like features, the entire database lives in memory and is c
 
 Features: 
 1. Create Tables in Database. 
-2. Tables has columns with "types" -> int, strings
+2. Tables has columns with "types" -> int, string
 3. Add new Rows to table
 4. Have Constrains over columns.
 5. Print Tables
